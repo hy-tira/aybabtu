@@ -1,6 +1,6 @@
 ---
 title: Testi
-permalink: /testi
+permalink: /testi/
 ---
 
 # Testi

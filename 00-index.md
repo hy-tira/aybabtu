@@ -1,5 +1,5 @@
 ---
-title: Frontpage
+title: Etusivu
 permalink: /
 ---
     
