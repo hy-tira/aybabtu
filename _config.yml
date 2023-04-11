@@ -1,0 +1,35 @@
+title: Tietorakenteet ja algoritmit
+subtitle: syksy 2023
+lang: fi # Or fi for Finnish
+baseurl: "/syksy-2023"
+url: "https://tira.mooc.fi"
+# Uncomment to change the theme color:
+# theme-color: '#60a6ec'
+
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: ollpu/jekyll-course-theme@v1
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  # Uncomment for Finnish quotes:
+  smart_quotes: rsquo,rsquo,rdquo,rdquo
+
+permalink: /:title/
+
+# If you want a collection of pages for course material:
+collections:
+  # In Finnish you might want to write e.g. "materiaali:" instead.
+  material:
+    output: true
+    permalink: /:collection/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
