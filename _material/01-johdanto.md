@@ -1,25 +1,31 @@
 ---
 title: 1. Johdanto algoritmeihin
 slug: johdanto
-sections:
-  - Mikä on algoritmi?
-  - Algoritmin toteutus
-  - Algoritmin tehokkuus
-  - Aikavaativuus
+#sections:
+#  - Mikä on algoritmi?
 ---
 
 # 1. Johdanto
+
+Kurssin _Tietorakenteet ja algoritmit_ tavoitteena on syventää ohjelmointitaitoa
+ja opettaa ajattelua ja tekniikoita, joiden avulla voi toteuttaa ohjelmia,
+jotka toimivat oikein ja tehokkaasti kaikissa tilanteissa.
+
+Tutustumme kurssin aiheisiin Python-kielen kautta, mutta suurin osa kurssin
+asioista pätee myös muissa ohjelmointikielissä.
+Kurssilla on tiedossa paljon ohjelmointia, minkä lisäksi käsittelemme myös
+aiheeseen liittyvää teoriaa.
 
 ## Mikä on algoritmi?
 
 _Algoritmi_ (_algorithm_) on menetelmä, jonka avulla voidaan ratkaista jokin tehtävä tietokoneella.
 Kun algoritmi toteutetaan jollakin ohjelmointikielellä, se voidaan suorittaa tietokoneella.
 
-Algoritmin _syöte_ (_input_) tarkoittaa, mitä tietoja algoritmille annetaan.
+Algoritmin _syöte_ (_input_) tarkoittaa, mitä lähtötietoja algoritmille annetaan.
 Algoritmin _tuloste_ (_output_) puolestaan tarkoittaa, minkä vastauksen algoritmi antaa suorituksen jälkeen.
 Python-kielessä algoritmi voidaan toteuttaa funktiona,
 jolloin algoritmin syöte annetaan funktion parametreina ja
-algoritmin tuloste on sen palautusarvo.
+algoritmin tuloste on funktion palautusarvo.
 
 Tarkastellaan esimerkkinä tehtävää, jossa algoritmille annetaan lista lukuja ja algoritmin
 pitää laskea, moniko luku on parillinen.
@@ -46,7 +52,7 @@ print(count_even([2, 2, 2, 2, 2])) # 5
 print(count_even([5, 4, 1, 7, 9, 6])) # 2
 ```
 
-Pääohjelmassa funktion toimintaa testataan kolmella eri listalla.
+Tässä pääohjelmassa funktion toimintaa testataan kolmella eri listalla.
 Jokaisen testin yhteydessä kommentissa lukee, mikä vastaus testistä pitäisi tulla.
 Kun ohjelma suoritetaan, sen tulostus on seuraava:
 
@@ -58,6 +64,31 @@ Kun ohjelma suoritetaan, sen tulostus on seuraava:
 
 Tämän perusteella vaikuttaa siltä, että funktio toimii halutulla tavalla
 eli olemme saaneet aikaan toimivan algoritmin tehtävään.
+
+## Mikä on tietorakenne?
+
+_Tietorakenne_ (_data structure_) on tapa pitää muistissa tietoa ohjelmassa.
+Python-kielen tavallisimmat tietorakenteet ovat lista ja sanakirja.
+
+Esimerkki listan käyttämisestä:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+print(numbers[2]) # 3
+```
+
+Esimerkki sanakirjan käyttämisestä:
+
+```python
+prices = {"omena": 2, "banaani": 5, "kaali": 1}
+print(prices["omena"]) # 2
+```
+
+Tällä kurssilla perehdymme siihen, mihin yllä olevien tietorakenteiden
+toiminta perustuu ja miten niitä kannattaa käyttää ohjelmoinnissa niin,
+että koodista tulee tehokas.
+Opimme toteuttamaan myös itse tietorakenteita, joita ei ole valmiina
+Pythonissa eikä muissa kielissä.
 
 ## Algoritmin toteutus
 
@@ -256,4 +287,59 @@ algoritmin tehokkuuteen ja miten suunnitella tehokkaita algoritmeja.
 
 ## Aikavaativuus
 
-TODO
+_Aikavaativuus_ (_time complexity_) on matemaattinen tapa mitata
+algoritmin tehokkuutta.
+Aikavaativuus on hyödyllinen työkalu algoritmien suunnittelussa,
+koska sen avulla pystyy arvioimaan nopeasti,
+miten tehokkaasti algoritmi toimii.
+
+Aikavaativuus ilmoitetaan yleensä $$O$$-merkinnän avulla niin,
+että muuttuja $$n$$ kuvastaa syötteen kokoa.
+Esimerkiksi jos syötteenä on lista, $$n$$ tarkoittaa listan kokoa,
+ja jos syötteenä on merkkijono, $$n$$ tarkoittaa merkkijonon pituutta.
+
+Tutustumme kurssin aikana pikkuhiljaa aikavaativuuden käsitteeseen.
+Usein hyvä ajattelutapa on, että aikavaativuus ilmaisee,
+montako sisäkkäistä syötteen läpi käyvää
+silmukkaa algoritmissa on pahimmillaan.
+Aikavaativuus $$O(n^k)$$ ilmaisee usein, että algoritmissa
+on $$k$$ sisäkkäistä silmukkaa.
+
+Esimerkiksi seuraavan funktion aikavaativuus on $$O(n)$$,
+koska siinä on yksi silmukka, joka käy läpi listan sisällön.
+
+```python
+def count_even(numbers):
+    result = 0
+    for x in numbers:
+        if x % 2 == 0:
+            result += 1
+    return result
+```
+
+Seuraavan funktion aikavaativuus on puolestaan $$O(n^2)$$,
+koska koodissa on kaksi sisäkkäistä silmukkaa, jotka käyvät listaa läpi.
+
+```python
+def max_diff(numbers):
+    result = 0
+    n = len(numbers)
+    for i in range(0, n):
+        for j in range(i + 1, n):
+            result = max(result, abs(numbers[i] - numbers[j]))
+    return result
+```
+
+Jos algoritmissa ei ole yhtään silmukkaa vaan se suorittaa vain kiinteän
+määrän komentoja, aikavaativuus on $$O(1)$$.
+Esimerkiksi lukujen $$1 \dots n$$ summa voidaan laskea
+tehokkaasti ajassa $$O(1)$$ seuraavasti:
+
+```python
+def sum_to_n(n):
+    return n * (n + 1) // 2
+```
+
+Tämä algoritmi hyödyntää summakaavaa
+
+$$1+2+\dots+n = \frac{n(n+1)}{2}.$$
