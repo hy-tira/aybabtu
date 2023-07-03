@@ -1,5 +1,5 @@
 ---
-title: 1. Johdanto
+title: 1. Johdanto algoritmeihin
 slug: johdanto
 sections:
   - Mikä on algoritmi?
@@ -32,8 +32,8 @@ moniko luku on parillinen. Algoritmi voidaan toteuttaa seuraavasti Pythonilla fu
 ```python
 def count_even(numbers):
     result = 0
-    for number in numbers:
-        if number % 2 == 0:
+    for x in numbers:
+        if x % 2 == 0:
             result += 1
     return result
 ```
@@ -61,11 +61,74 @@ eli olemme saaneet aikaan toimivan algoritmin tehtävään.
 
 ## Algoritmin toteutus
 
-TODO
+Algoritmien toteuttamisessa on hyvä tietää, että minkä tahansa algoritmin
+pystyy toteuttamaan ohjelmoinnin perusasioiden avulla.
+Tällaisia perusasioita ovat:
+
+* muuttujat
+* ehdot (`if`)
+* silmukat (`for`, `while`)
+* listat
+* funktiot
+* luokat
+
+Näiden lisäksi ohjelmointikielissä on usein paljon muita ominaisuuksia,
+joiden avulla voi esimerkiksi tiivistää koodia mutta jotka eivät pohjimmiltaan
+muuta koodin toimintalogiikkaa. Näitä ominaisuuksia voi käyttää
+algoritmien toteuttamisessa, mutta niitä ilmankin pärjää mainiosti.
+
+Tarkastellaan vielä äskeistä funktiota `count_even`,
+joka on toteutettu käyttäen ohjelmoinnin perusasioita:
+
+```python
+def count_even(numbers):
+    result = 0
+    for x in numbers:
+        if x % 2 == 0:
+            result += 1
+    return result
+```
+
+Tämän funktion voi toteuttaa selvästi tiiviimmin käyttämällä
+Python-kielelle erityistä generaattorilauseketta:
+
+```python
+def count_even(numbers):
+    return sum(x % 2 == 0 for x in numbers)
+```
+
+Tässä lausekkeen sisällä on for-silmukka, joka laskee jokaiselle listan
+alkiolle lausekkeen `x % 2 == 0` arvon (`True` tai `False`).
+Kun nämä arvot lasketaan yhteen `sum`-funktiolla, jokainen `True`-arvo
+tulkitaan luvuksi `1` eli arvojen summa on yhtä suuri kuin parillisten
+lukujen määrä.
+
+Vaikka jälkimmäinen funktio on paljon lyhyempi, se kuitenkin tekee
+pohjimmiltaan saman asian kuin ensimmäinen funktio.
+Molemmat funktiot käyvät läpi listan luvut ja laskevat yhteen
+parillisten lukujen määrän, eikä funktioissa ole eroa algoritmin
+toimintalogiikan kannalta.
+
+Ensimmäisen funktion etuna on, että se on helpompi ymmärtää henkilölle,
+joka ei tunne Python-kielen erikoisominaisuuksia.
+Funktion voisi toteuttaa samalla tavalla esimerkiksi JavaScriptilla:
+
+```js
+function countEven(numbers) {
+    let result = 0;
+    for (let x of numbers) {
+        if (x % 2 == 0) result++;
+    }
+    return result;
+}
+```
+
+Toisen funktion etuna on, että se on tiiviimpi ja sen voi ajatella olevan
+enemmän Python-kielen tyylin mukainen.
 
 ## Algoritmin tehokkuus
 
-Samaan tehtävään on olemassa usein monia erilaisia algoritmeja,
+Samaan tehtävän ratkaisemiseen on olemassa usein monia erilaisia algoritmeja,
 joiden tehokkuudessa voi olla eroja.
 Usein tavoitteena on löytää tehokas algoritmi tehtävään,
 jolloin tehtävä voidaan ratkaista nopeasti algoritmin avulla.
