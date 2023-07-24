@@ -24,7 +24,7 @@ kun $$c$$ on mikä tahansa vakio, joka on suurempi kuin $$1$$. Vakion $$c$$ avul
 
 ## Pythonin toteutus
 
-Seuraavan koodin avulla voidaan tutkia Pythonin listan sisäisen koon kasvua:
+Seuraavan koodin avulla voidaan tutkia Pythonin listan muistinkäyttöä:
 
 ```python
 import sys
@@ -63,20 +63,6 @@ Koodin tulostus testikoneella (CPython 3.10.6) on seuraava:
 93 920
 ```
 
-Tässä tapauksessa tyhjä lista vie muistia 56 tavua ja jokainen alkiolle varattu paikka vie muistia 8 tavua. Listan muistinkäyttö kasvaa tilanteissa, joissa alkioiden määräksi tulee 1, 5, 9, 17, 25, jne. Esimerkiksi kun alkioiden määräksi tulee 17, uusi muistinkäyttö on 184 ja muistia varataan (248 – 56) / 8 = 24 alkiolle. Niinpä muistia tarvitaan lisää seuraavan kerran, kun alkioiden määräksi tulee 25.
+Tästä näkee, että tyhjä lista vie muistia 56 tavua ja kullekin alkiolle varataan muistia 8 tavua. Listan muistinkäyttö kasvaa tilanteissa, joissa alkioiden määräksi tulee 1, 5, 9, 17, 25, jne. Esimerkiksi kun alkioiden määräksi tulee 17, uusi muistinkäyttö on 248 tavua ja muistia varataan (248 – 56) / 8 = 24 alkiolle. Niinpä muistia tarvitaan lisää seuraavan kerran, kun alkioiden määräksi tulee 25.
 
-Tutkimalla [CPythonin listan toteutusta](https://github.com/python/cpython/blob/0a9b339363a59be1249189c767ed6f46fd71e1c7/Objects/listobject.c#L72) selviää, että listan uusi koko lasketaan seuraavalla kaavalla:
-
-```c
-new_allocated = ((size_t)newsize + (newsize >> 3) + 6) & ~(size_t)3;
-```
-
-Tämä tarkoittaa, että kun listan alkioiden määräksi tulee $$n$$ ja listan kokoa kasvatetaan, varataan muistia
-
-$$n+\lfloor n/8 \rfloor +6$$
-
-alkiolle pyöristettynä alaspäin lähimpään 4:n moninkertaan. Esimerkiksi kun alkioiden määräksi tulee 17, kaavasta saadaan
-
-$$17+\lfloor 17/8 \rfloor + 6 = 25$$
-
-ja tämä pyöristetään alaspäin lukuun 24. Listalle varatun muistialueen koko siis suunnilleen $$9/8$$-kertaistuu listan kasvatuksen yhteydessä.
+Tutkimalla [CPythonin listan toteutusta](https://github.com/python/cpython/blob/0a9b339363a59be1249189c767ed6f46fd71e1c7/Objects/listobject.c#L72) selviää, että uusi muistialueen alkioiden määrä lasketaan kaavalla $$n + \lfloor n/8 \rfloor + 6$$ pyöristettynä alaspäin lähimpään 4:n moninkertaan. Esimerkiksi kun $$n=17$$, kaavasta tulee $$17+\lfloor 17/8 \rfloor + 6 = 25$$ ja tätä lähin 4:n moninkerta on $$24$$. Niinpä muistialueen koko suunnilleen $$9/8$$-kertaistuu, kun muistia varataan lisää.
