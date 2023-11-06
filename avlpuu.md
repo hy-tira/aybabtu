@@ -70,7 +70,7 @@ Kun puuhun lisätään alkio $$9$$, sen paikka valitaan ensin kuten tavallisesti
 
 Lisäämisen jälkeen kuljetaan ylöspäin lisätystä solmusta juureen. Lisääminen rikkoi tasapainoehdon, koska juuressa vasemman alipuun korkeus on $$0$$ ja oikean alipuun korkeus on $$2$$. Tässä $$x=3$$, $$y=7$$ ja $$z=8$$.
 
-Korjataan tilanne tekemällä kierto, jossa solmu $$8$$ nostetaan solmun $$7$$ yli:
+Korjataan tilanne tekemällä kierto, jossa solmu $$7$$ nostetaan solmun $$3$$ yli:
 
 ![](avl_e3.png)
 
