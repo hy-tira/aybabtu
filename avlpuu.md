@@ -60,6 +60,22 @@ Esimerkiksi seuraavassa kuvassa solmut $$y$$ ja $$z$$ ovat oikeanpuoleisia lapsi
 
 Jos solmut $$y$$ ja $$z$$ ovat vasemmanpuoleisia lapsia, sama kierto tehdään käänteisesti.
 
+Tarkastellaan esimerkkinä seuraavaa puuta:
+
+![](avl_e1.png)
+
+Kun puuhun lisätään alkio $$9$$, sen paikka valitaan ensin kuten tavallisesti binäärihakupuussa:
+
+![](avl_e2.png)
+
+Lisäämisen jälkeen kuljetaan ylöspäin lisätystä solmusta juureen. Lisääminen rikkoi tasapainoehdon, koska juuressa vasemman alipuun korkeus on $$0$$ ja oikean alipuun korkeus on $$2$$. Tässä $$x=3$$, $$y=7$$ ja $$z=8$$.
+
+Korjataan tilanne tekemällä kierto, jossa solmu $$8$$ nostetaan solmun $$7$$ yli:
+
+![](avl_e3.png)
+
+Tämän kierron jälkeen puu on jälleen tasapainoinen.
+
 ### Tapaus 2
 
 Solmut $$y$$ ja $$z$$ ovat eripuoleisia lapsia. Tällöin tehdään kaksi kiertoa: ensin solmu $$z$$ nostetaan solmun $$y$$ yli, ja sitten solmu $$z$$ nostetaan solmun $$x$$ yli.
@@ -70,9 +86,29 @@ Esimerkiksi seuraavassa kuvassa solmu $$y$$ on oikeanpuoleinen lapsi ja solmu $$
 
 Jos solmut $$y$$ ja $$z$$ ovat eri päin, samat kierrot tehdään käänteisesti.
 
+Tarkastellaan esimerkkinä seuraavaa puuta:
+
+![](avl_e1.png)
+
+Kun puuhun lisätään alkio $$6$$, sen paikka valitaan ensin kuten tavallisesti binäärihakupuussa:
+
+![](avl_e4.png)
+
+Lisäämisen jälkeen kuljetaan ylöspäin lisätystä solmusta juureen. Lisääminen rikkoi tasapainoehdon, koska juuressa vasemman alipuun korkeus on $$0$$ ja oikean alipuun korkeus on $$2$$. Tässä $$x=3$$, $$y=7$$ ja $$z=5$$.
+
+Tehdään ensin kierto, jossa solmu $$5$$ nostetaan solmun $$7$$ yli:
+
+![](avl_e5.png)
+
+Tehdään sitten kierto, jossa solmu $$5$$ nostetaan solmun $$3$$ yli:
+
+![](avl_e6.png)
+
+Näiden kiertojen jälkeen puu on jälleen tasapainoinen.
+
 ### Aikavaativuus
 
-Lisäyksen jälkeen kuljetaan reitti ylös juureen ja tehdään tarvittaessa kiertoja. Koska puun korkeus on $$O(\log n)$$ ja kierrot vievät aikaa $$O(1)$$, lisääminen vie aikaa $$O(\log n)$$. Voidaan osoittaa, että solmun lisääminen rikkoo tasapainoehdon enintään yhdessä solmussa, minkä ansiosta kiertojen määrä on $$O(1)$$.
+Lisäyksen jälkeen kuljetaan reitti ylös juureen ja tehdään tarvittaessa kiertoja. Koska puun korkeus on $$O(\log n)$$ ja kierrot vievät aikaa $$O(1)$$, lisääminen vie aikaa $$O(\log n)$$. Voidaan osoittaa, että solmun lisääminen rikkoo tasapainoehdon enintään yhdessä solmussa, minkä ansiosta kiertoja täytyy tehdä enintään yhdessä puun kohdassa.
 
 ## Alkion poistaminen
 
