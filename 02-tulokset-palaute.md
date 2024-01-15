@@ -1,6 +1,7 @@
 ---
 title: Tulokset ja palaute
 permalink: /tulokset-palaute
+hide: true
 ---
     
 # Tulokset ja palaute

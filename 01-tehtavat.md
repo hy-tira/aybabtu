@@ -1,6 +1,7 @@
 ---
 title: Tehtävät
 permalink: /tehtavat
+hide: true
 ---
     
 # Tehtävät

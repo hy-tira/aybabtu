@@ -3,9 +3,9 @@ title: Etusivu
 permalink: /
 ---
     
-# Tietorakenteet ja algoritmit, syksy 2023
+# Tietorakenteet ja algoritmit, kevät 2024
 
-Kurssi muodostuu kahdesta 5 op laajuisesta osasuorituksesta. Syksyllä 2023 voit suorittaa kurssin verkkokurssina, jonka materiaali on tällä sivustolla.
+Kurssi muodostuu kahdesta 5 op laajuisesta osasuorituksesta. Keväällä 2024 voit suorittaa kurssin verkkokurssina, jonka materiaali on tällä sivustolla.
 
 Kurssi suoritetaan ratkomalla automaattisesti palautettavia tehtäviä. Kurssi järjestetään samalla tavalla Helsingin yliopiston tutkinto-opiskelijoille ja Avoimen yliopiston opiskelijoille.
 
@@ -21,17 +21,17 @@ Kurssin suoritus edellyttää, että ratkot ainakin 5 tehtävää kultakin viiko
 * 55–59 tehtävää: arvosana 4
 * 60–64 tehtävää: arvosana 5
 
-Kurssin I-osan tehtävien deadline on su 29.10. klo 23:59. Materiaali ja tehtävät julkaistaan seuraavan aikataulun mukaisesti:
+Kurssin I-osan tehtävien deadline on su 10.3. klo 23:59. Materiaali ja tehtävät julkaistaan seuraavan aikataulun mukaisesti:
 
 {: .cell-w-3 }
 Viikko | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-Julkaisu | 6.9. | 6.9. | 13.9. | 13.9. | 20.9. | 20.9. | 27.9. | 27.9. |
+Julkaisu | 17.1. | 17.1. | 24.1. | 24.1. | 31.1. | 31.1. | 7.2. | 7.2. |
 
-Kurssin II-osan tehtävien deadline on la 23.12. klo 23:59. Materiaali ja tehtävät julkaistaan seuraavan aikataulun mukaisesti:
+Kurssin II-osan tehtävien deadline on su 12.5. klo 23:59. Materiaali ja tehtävät julkaistaan seuraavan aikataulun mukaisesti:
 
 {: .cell-w-3 }
 Viikko | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
-Julkaisu | 1.11. | 1.11. | 8.11. | 8.11. | 15.11. | 15.11. | 22.11. | 22.11. |
+Julkaisu | 13.3. | 13.3. | 20.3. | 20.3. | 27.3. | 27.3. | 3.4. | 3.4. |
 
 ## Ohjaus ja yhteystiedot
 
@@ -39,4 +39,4 @@ Kurssin ohjausta järjestetään Discordissa, jossa voit keskustella kurssin jä
 
 Lisäksi ohjausta on tarjolla Kumpulan kampuksella Exactumin salissa BK107 maanantaisin, torstaisin ja perjantaisin klo 13–16.
 
-Kurssin vastuuhenkilö syksyllä 2023 on Antti Laaksonen. Voit ottaa yhteyttä lähettämällä [sähköpostia](mailto:ahslaaks@cs.helsinki.fi).
+Kurssin vastuuhenkilö keväällä 2024 on Antti Laaksonen. Voit ottaa yhteyttä lähettämällä [sähköpostia](mailto:ahslaaks@cs.helsinki.fi).
